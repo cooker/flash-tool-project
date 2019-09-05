@@ -15,6 +15,7 @@
       <module>flash-tools-springboot</module>
     <module>flash-tools-utils</module>
       <module>flash-netty-study</module>
+      <module>flash-tools-invoice</module>
   </modules>
 
   <name>flash-tools-project</name>

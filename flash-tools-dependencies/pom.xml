@@ -24,10 +24,31 @@
         <mysql.version>8.0.16</mysql.version>
         <reflectasm.version>1.11.9</reflectasm.version>
         <vavr.version>0.10.2</vavr.version>
+        <bucket4j.version>4.0.1</bucket4j.version>
+        <protobuf.version>3.9.1</protobuf.version>
+        <netty.version>4.1.27.Final</netty.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${protobuf.version}</version>
+            </dependency>
+
+            <!--限流-->
+            <dependency>
+                <groupId>com.github.vladimir-bukhtoyarov</groupId>
+                <artifactId>bucket4j-core</artifactId>
+                <version>${bucket4j.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>

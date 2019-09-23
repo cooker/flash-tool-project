@@ -1,10 +1,14 @@
 package org.grant.netty;
 
 import io.netty.bootstrap.Bootstrap;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.serialization.ObjectDecoder;
+import io.netty.handler.codec.serialization.ObjectEncoder;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.timeout.IdleState;
@@ -12,6 +16,7 @@ import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.handler.timeout.IdleStateHandler;
 
 import java.net.InetSocketAddress;
+import java.nio.charset.Charset;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -33,8 +38,10 @@ public class NettyClient {
                     protected void initChannel(NioSocketChannel ch) throws Exception {
                         ch.pipeline()
                                 .addLast("ping", new IdleStateHandler(5, 0, 0, TimeUnit.SECONDS))
-                                .addLast(new StringEncoder())
-                                .addLast(new StringDecoder()).addLast(new ChannelInboundHandlerAdapter(){
+                                .addLast(new ObjectEncoder())
+                                .addLast(new ObjectDecoder((s)->{
+                                    return String.class;
+                                })).addLast(new ChannelInboundHandlerAdapter(){
                             @Override
                             public void channelInactive(ChannelHandlerContext ctx) throws Exception {
                                 System.out.println("断线了");
@@ -81,17 +88,18 @@ public class NettyClient {
             public void run() {
                 int num = 100;
                 while (num -- > 0){
-                    try {
-                        Thread.sleep(1000L);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+//                    try {
+//                        Thread.sleep(1000L);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
 
                     try {
                         if (channel != null && channel.isActive()){
-                            channel.writeAndFlush("测试" + UUID.randomUUID().toString());
+                            channel.writeAndFlush("测试" + UUID.randomUUID().toString() + "#@");
                         }else if(channel == null || !channel.isActive()){
                             System.out.println("不可写 稍等 ++++");
+                            Thread.sleep(1000L);
                         }
                     }catch (Exception e){
                         e.printStackTrace();

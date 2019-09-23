@@ -16,6 +16,10 @@
     <module>flash-tools-utils</module>
       <module>flash-netty-study</module>
       <module>flash-tools-invoice</module>
+      <module>flash-nio-study</module>
+      <module>flash-tools-domain</module>
+      <module>flash-rpc-server</module>
+    <module>flash-rpc-client</module>
   </modules>
 
   <name>flash-tools-project</name>

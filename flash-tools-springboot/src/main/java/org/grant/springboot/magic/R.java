@@ -7,11 +7,11 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class R {
+public class R<T> {
     public final static int FAIL = 0;
     public final static int OK = 1;
 
     private int code;
     private String message;
-    private Object body;
+    private T body;
 }

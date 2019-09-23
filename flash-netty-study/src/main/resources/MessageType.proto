@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package base;
+
+option java_package = "org.grant.netty.protobuf";
+option java_outer_classname = "MessageType";
+
+enum Type {
+    REQUEST = 0;
+    RESPONSE = 1;
+    CALL = 3;
+}

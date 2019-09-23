@@ -1,0 +1,22 @@
+server:
+  port: 8080
+dynamic:
+  datasource:
+    qq:
+      url: jdbc:mysql://106.15.190.158:3306/yili?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+      password: root123/*-
+      username: root
+      driverClassName: com.mysql.jdbc.Driver
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://101.37.81.40:3306/Demo_01?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+      password: xforce!
+      username: root
+      driverClassName: com.mysql.jdbc.Driver
+
+yaml:
+  loader:
+    files: 12, 122
+    enable: true

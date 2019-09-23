@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package base;
+
+option java_package="org.grant.netty.protobuf";
+option java_outer_classname="TranMessage";
+
+import "MessageType.proto";
+
+message Message {
+    Type type = 1;
+    map<string, string> properties = 2;
+    string className = 3;
+    string body = 4;
+    repeated string list = 5;
+}

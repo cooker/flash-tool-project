@@ -20,6 +20,7 @@
       <module>flash-tools-domain</module>
       <module>flash-rpc-server</module>
     <module>flash-rpc-client</module>
+      <module>flash-jmh-test</module>
   </modules>
 
   <name>flash-tools-project</name>

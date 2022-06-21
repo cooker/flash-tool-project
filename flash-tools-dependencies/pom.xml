@@ -21,7 +21,7 @@
         <jackson.version>2.13.2</jackson.version>
         <druid.version>1.1.14</druid.version>
         <junit.version>4.13.1</junit.version>
-        <mysql.version>8.0.16</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <reflectasm.version>1.11.9</reflectasm.version>
         <vavr.version>0.10.2</vavr.version>
         <bucket4j.version>4.0.1</bucket4j.version>
